@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import rest.controller.UserController;
 import rest.pojo.rerponse.Users;
 import rest.pojo.rerponse.UsersResponse;
+import rest.utils.EntityManager;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class UserApiTest extends BaseTest {
 
     protected UsersResponse usersResponse;
     protected Users[] users;
+    protected Users users1;
     public static UserController userController;
 
     @BeforeAll
@@ -32,4 +34,18 @@ public class UserApiTest extends BaseTest {
                 userController.getUsers().asPrettyString(), // asString() предполагается возвращает JSON в виде строки
                 new TypeReference<List<UsersResponse>>() {}
         );    }
+
+    @Test
+    public void userTest() {
+        userController.getUsers().asPrettyString();
+        Users expectedUser = EntityManager.generateUser();
+        Users actualUser = userController.createUser(expectedUser);
+        String userId = actualUser.getId();
+        userController.deleteUser(userId);
+        userController.getUsers().asPrettyString();
+    }
+    @Test
+    public void deleteUserTest(){
+        userController.deleteUser("50");
+    }
 }
