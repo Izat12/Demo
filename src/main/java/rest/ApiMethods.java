@@ -12,6 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
 @Data
 public abstract class ApiMethods {
 
@@ -52,6 +55,12 @@ public abstract class ApiMethods {
                 .get(endpoint);
         return  this.response;
     }
-
+    public Response post(String endPoint, Map<String, String> params) {
+        this.response = given()
+                .spec(this.specification)
+                .formParams(params)
+                .post(endPoint);
+        return this.response;
+    }
 }
 
