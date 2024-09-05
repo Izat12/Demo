@@ -55,12 +55,5 @@ public abstract class ApiMethods {
                 .get(endpoint);
         return  this.response;
     }
-    public Response post(String endPoint, Map<String, String> params) {
-        this.response = given()
-                .spec(this.specification)
-                .formParams(params)
-                .post(endPoint);
-        return this.response;
-    }
 }
 
