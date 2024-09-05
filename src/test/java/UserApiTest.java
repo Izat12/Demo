@@ -2,6 +2,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 import rest.controller.UserController;
 import rest.pojo.rerponse.Users;
 import rest.pojo.rerponse.UsersResponse;
@@ -21,7 +22,7 @@ public class UserApiTest extends BaseTest {
         userController = baseController.userController;
     }
 
-    @Test
+   @Test
     @Order(1)
     public void receiveTest() throws JsonProcessingException {
 
