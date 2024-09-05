@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -30,7 +31,7 @@ public abstract class ApiMethods {
         this.headers = headers;
 
         PreemptiveBasicAuthScheme preemptiveAuthSpec = new PreemptiveBasicAuthScheme();
-        preemptiveAuthSpec.setUserName("rT4R6sst4PFW1cnsL9ZWh3cWMjC1hG");
+        preemptiveAuthSpec.setUserName("WCYQvLwpXaqtXs7g1rCcAwkT9z5CkQ");
 
         specification = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
@@ -49,6 +50,14 @@ public abstract class ApiMethods {
         return endPoint.substring(0, endPoint.length() - 1);
     }
 
+    public String formatParameter(HashMap<String, String> parameters) {
+        StringBuilder query = new StringBuilder("?");
+        for (Map.Entry<String, String> entry : parameters.entrySet()) {
+            query.append(entry.getKey() + "=" + entry.getValue() + "&");
+        }
+        return query.deleteCharAt(query.length() - 1).toString();
+    }
+
     public Response get(String endpoint) {
         this.response = RestAssured.given()
                 .spec(this.specification)
@@ -59,6 +68,13 @@ public abstract class ApiMethods {
         this.response = given()
                 .spec(this.specification)
                 .formParams(params)
+                .post(endPoint);
+        return this.response;
+    }
+    public Response post(String endPoint, String body) {
+        this.response = given()
+                .spec(this.specification)
+                .body(body)
                 .post(endPoint);
         return this.response;
     }
