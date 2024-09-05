@@ -8,5 +8,6 @@ public class abrakadara {
         System.out.println("Жылдыз киборг убийца");
         System.out.println("Шириииин ЭФЭЭЭЭЭЭЭЭМ");
         System.out.println("это что за ФУРА ЗАФУУУУРААААААА");
+        System.out.println(" этот мир мне понятен отслияния к слиянию");
     }
 }
