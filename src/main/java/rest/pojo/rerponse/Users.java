@@ -8,7 +8,6 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Users {
@@ -42,4 +41,8 @@ public class Users {
     String loginKey;
     String password;
 
+
+    public Users(Users users) {
+        super();
+    }
 }

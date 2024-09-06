@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserEndpoints {
-    public static final String URL ="https://24winter.talentlms.com";
-
+    public static final String URL ="https://dzhamilya.talentlms.com";
     public static final String V1 ="v1";
     public static final String USERS ="users";
     public static final String USER_SIGNUP ="usersignup";
