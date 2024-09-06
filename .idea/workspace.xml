@@ -59,7 +59,7 @@
       <recent name="rest.controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.CoursesTest.coursesDelete">
     <configuration name="CoursesTest.coursesDelete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
